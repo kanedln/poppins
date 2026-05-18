@@ -1,439 +1,1989 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poppins — Even Garbage Can Sparkle</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<!--
+ ============================================================
+ POPPINS — DRAG PERFORMER & EVENT ICON
+ Single-file HTML site. Drop on Netlify / Vercel / GitHub Pages.
+ ============================================================
+ BEFORE DEPLOYING, REPLACE THE FOLLOWING:
+ 1.  <meta property="og:url"> and <link rel="canonical">  →  real domain
+ 2.  Formspree endpoint in <form action="...">             →  your form ID
+ 3.  booking@poppinsdrag.com                               →  real booking email
+ 4.  Social handle URLs (Instagram, TikTok, YouTube)
+ ============================================================
+-->
+
+<title>Poppins — Drag Performer, Host & Event Icon | Even Garbage Can Sparkle</title>
+<meta name="description" content="Poppins is a high-glam drag performer, host, and event icon. Book her for drag brunches, club shows, Pride events, fundraisers, weddings, and private parties. Camp, couture, chaos." />
+<meta name="keywords" content="Poppins, drag queen, drag performer, drag brunch, drag host, Pride entertainment, private event drag, drag booking, drag show booking" />
+<meta name="author" content="Poppins" />
+<meta name="theme-color" content="#E21B73" />
+<link rel="canonical" href="https://poppinsdrag.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Poppins — Even Garbage Can Sparkle" />
+<meta property="og:description" content="High-glam drag, comedy, hosting, and full-throttle performance energy. Now booking shows, brunches, Pride events, and private parties." />
+<meta property="og:url" content="https://poppinsdrag.com/" />
+<meta property="og:image" content="https://poppinsdrag.com/og-image.jpg" />
+<meta property="og:site_name" content="Poppins" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Poppins — Even Garbage Can Sparkle" />
+<meta name="twitter:description" content="High-glam drag, comedy, hosting & full-throttle performance energy. Now booking." />
+<meta name="twitter:image" content="https://poppinsdrag.com/og-image.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23791D7A'/%3E%3Cpath d='M32 12 L36 26 L50 26 L38 34 L42 48 L32 40 L22 48 L26 34 L14 26 L28 26 Z' fill='%23F7CD59'/%3E%3C/svg%3E" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "Poppins",
+ "jobTitle": "Drag Performer & Event Host",
+ "description": "High-glam drag performer, comedian, and host based in the United States. Available for shows, brunches, Pride events, fundraisers, weddings, and private parties.",
+ "url": "https://poppinsdrag.com/",
+ "email": "booking@poppinsdrag.com",
+ "sameAs": [
+   "https://instagram.com/poppinsdrag",
+   "https://tiktok.com/@poppinsdrag",
+   "https://youtube.com/@poppinsdrag"
+ ],
+ "knowsAbout": ["Drag performance","Hosting","Lip sync","Live entertainment","Comedy"],
+ "makesOffer": [
+   {"@type":"Offer","name":"Pop-In Appearance","priceCurrency":"USD","price":"150"},
+   {"@type":"Offer","name":"Full Show","priceCurrency":"USD","price":"400"},
+   {"@type":"Offer","name":"Premium Event","priceCurrency":"USD","price":"800"}
+ ]
+}
+</script>
+
+<!-- Fonts: Bubbly Toy Brand Energy -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Titan+One&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --purple: #5A2CA0;
-  --pink: #F25CA2;
-  --lavender: #D96CF5;
-  --light: #F4F6FA;
-  --text: #2E1A47;
-  --custard-yellow: #FAEEA5; /* Added a fresh accent color */
+:root{
+ /* Color Palette inspired by the new Poppins Logo */
+ --purple: #791D7A; /* Deep plum/purple from border */
+ --hot: #E21B73; /* Hot pink from oval */
+ --gold: #F7CD59; /* Yellow from text */
+ --cream: #FFF9ED; /* Warm cream background */
+ --ink: #3A0C3B;
+ --muted: #9E749F;
+ --lav: #D586C6;
+ --cyan: #38BDCD; /* From the logo dot */
+ --green: #83C143; /* From the logo dot */
+ --orange: #F38120; /* From the logo dot */
+  /* Hard "sticker" shadows for a toy packaging vibe */
+ --shadow-color: rgba(121, 29, 122, 0.2);
+ --shadow: 6px 6px 0 var(--shadow-color);
+ --shadow-lg: 12px 12px 0 var(--shadow-color);
+ --shadow-hover: 3px 3px 0 var(--shadow-color);
+ --radius: 36px;
+  /* Hard colored shadows for buttons */
+ --btn-shadow: 4px 4px 0 var(--purple);
+ --btn-shadow-hover: 1px 1px 0 var(--purple);
 }
 
-* { box-sizing: border-box; scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--light);
-  color: var(--text);
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+*:focus-visible{
+ outline:4px solid var(--cyan);
+ outline-offset:3px;
+ border-radius:12px;
 }
 
-/* HEADER */
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  transition: 0.3s;
+body{
+ margin:0;
+ font-family:'Fredoka', system-ui, sans-serif;
+ color:var(--ink);
+ background:var(--cream);
+ overflow-x:hidden;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
 }
 
-.header.scrolled {
-  background: white;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+/* Background atmosphere with soft playful grid */
+body::before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:-1;
+ background-image:
+   linear-gradient(rgba(226, 27, 115, 0.06) 2px, transparent 2px),
+   linear-gradient(90deg, rgba(226, 27, 115, 0.06) 2px, transparent 2px),
+   radial-gradient(800px circle at 10% -10%, rgba(247,205,89,.15), transparent 50%),
+   radial-gradient(900px circle at 95% 5%, rgba(213,134,198,.2), transparent 50%),
+   radial-gradient(700px circle at 80% 90%, rgba(56,189,205,.1), transparent 50%);
+ background-size: 80px 80px, 80px 80px, 100% 100%, 100% 100%, 100% 100%;
+ background-position: center top;
 }
 
-.logo-img {
-  height: 100px;
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+
+/* Skip nav for accessibility */
+.skip{
+ position:absolute;
+ left:-9999px;
+ top:auto;
+ padding:14px 20px;
+ background:var(--purple);
+ color:white;
+ z-index:9999;
+ border-radius:0 0 16px 0;
+ font-weight:700;
+}
+.skip:focus{left:0;}
+
+/* Typography */
+h1,h2,h3,h4, .marquee, .card .price, .stat strong, .tour-date strong, .footer-brand, .look-num {
+ font-family: 'Titan One', cursive;
+ font-weight: 400;
+ line-height: 1.05;
+ color: var(--purple);
 }
 
-nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: var(--purple);
-  font-weight: 500;
-  position: relative;
+h2{
+ font-size:clamp(2.6rem,6.5vw,4.5rem);
+ letter-spacing: 1px;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background: var(--pink);
-  transition: 0.3s;
+.editorial{
+ color: var(--hot);
+ display: inline-block;
+ transform: rotate(-2deg);
 }
 
-nav a:hover::after {
-  width: 100%;
+.eyebrow{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ color:var(--hot);
+ font-weight:700;
+ text-transform:uppercase;
+ letter-spacing: 2px;
+ font-size:.85rem;
+ margin-bottom:18px;
+ background: white;
+ padding: 6px 14px;
+ border-radius: 999px;
+ border: 2px solid var(--hot);
+ box-shadow: 2px 2px 0 var(--hot);
+}
+p{line-height:1.6;color:var(--ink); font-size: 1.1rem;}
+
+.section{
+ padding:clamp(80px,11vw,140px) 7%;
+ position:relative;
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  padding-top: 80px;
+/* ====== HEADER ====== */
+.header{
+ position:fixed;
+ inset:0 0 auto 0;
+ padding:16px 7%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ z-index:1000;
+ transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+}
+.header.scrolled{
+ background:rgba(255, 249, 237, 0.95);
+ backdrop-filter:blur(10px);
+ -webkit-backdrop-filter:blur(10px);
+ box-shadow: 0 4px 20px rgba(121, 29, 122, 0.08);
+ padding:10px 7%;
+}
+.logo-wrap{
+ display:inline-block;
+}
+.logo-img{
+ height: 85px;
+ width: auto;
+ filter: drop-shadow(2px 3px 0px rgba(121, 29, 122, 0.2));
+ transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ transform-origin: left center;
+}
+.logo-wrap:hover .logo-img {
+ transform: scale(1.08) rotate(-4deg);
 }
 
-.hero-left {
-  width: 50%;
-  padding: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.nav{
+ display:flex;
+ align-items:center;
+ gap:30px;
+}
+.nav a{
+ font-weight:600;
+ color:var(--purple);
+ font-size:1.05rem;
+ position:relative;
+ padding:6px 0;
+ transition: color 0.2s;
+}
+.nav a:hover { color: var(--hot); }
+.nav a::after{
+ content:"";
+ position:absolute;
+ left:0;
+ bottom:-2px;
+ width:0;
+ height:3px;
+ border-radius: 2px;
+ background:var(--hot);
+ transition:width .25s ease;
+}
+.nav a:not(.nav-cta):hover::after{width:100%;}
+.nav .nav-cta{
+ background:var(--gold);
+ color:var(--purple);
+ border: 3px solid var(--purple);
+ padding:10px 24px;
+ border-radius:999px;
+ font-weight:700;
+ font-size:1rem;
+ box-shadow: 3px 3px 0 var(--purple);
+ transition: transform .15s ease, box-shadow .15s ease;
+ font-family: 'Titan One', cursive;
+ letter-spacing: 1px;
+}
+.nav .nav-cta::after{display:none;}
+.nav .nav-cta:hover{
+ transform:translate(2px, 2px);
+ box-shadow: 1px 1px 0 var(--purple);
+ color:var(--purple);
 }
 
-.subtitle {
-  letter-spacing: 0.2em;
-  font-size: 12px;
-  color: var(--pink);
+.menu-btn{
+ display:none;
+ border:3px solid var(--purple);
+ background:var(--gold);
+ color:var(--purple);
+ width:50px;
+ height:50px;
+ border-radius:999px;
+ cursor:pointer;
+ align-items:center;
+ justify-content:center;
+ box-shadow: 3px 3px 0 var(--purple);
+}
+.menu-btn:active {
+ transform: translate(2px, 2px);
+ box-shadow: 1px 1px 0 var(--purple);
+}
+.menu-btn svg{width:24px;height:24px;}
+
+/* ====== BUTTONS (Toy Style) ====== */
+.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ padding:18px 36px;
+ border-radius:999px;
+ background:var(--hot);
+ color:white;
+ font-family:'Titan One', cursive;
+ font-size:1.1rem;
+ letter-spacing: 1px;
+ cursor:pointer;
+ border: 3px solid var(--purple);
+ box-shadow: var(--btn-shadow);
+ transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+}
+.btn:hover{
+ transform:translate(3px, 3px);
+ box-shadow: var(--btn-shadow-hover);
+ background: #f22982;
+}
+.btn:active{
+ transform:translate(4px, 4px);
+ box-shadow: none;
+}
+.btn.secondary{
+ background:var(--gold);
+ color:var(--purple);
+}
+.btn.secondary:hover{
+ background:#ffe07a;
+}
+.btn.ghost{
+ background:white;
+ color:var(--purple);
+}
+.btn.ghost:hover { background: #f4f4f4; }
+
+/* ====== HERO ====== */
+.hero{
+ min-height:100vh;
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ align-items:center;
+ gap:60px;
+ padding:180px 7% 80px;
+ position:relative;
+}
+.hero-copy{
+ position:relative;
+ z-index:2;
 }
 
-.headline {
-  font-size: 80px;
-  color: var(--purple);
-  margin: 20px 0;
-  opacity: 0;
-  transform: translateY(30px);
+.hero h1{
+ font-size:clamp(4.5rem, 10vw, 8.5rem);
+ line-height:.88;
+ letter-spacing: 2px;
+ margin:18px 0 28px;
+ text-transform:uppercase;
+ display: flex;
+ flex-direction: column;
+}
+.hero h1 .dark-text {
+ color: var(--purple);
+ text-shadow: 4px 4px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+.hero h1 .sparkle-text {
+ color: var(--hot);
+ text-shadow: 4px 4px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+.hero-text{
+ max-width:600px;
+ font-size:1.2rem;
+ font-weight: 500;
+ margin-bottom:36px;
 }
 
-.cta {
-  margin-top: 30px;
-  padding: 16px 30px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(135deg, var(--pink), var(--lavender));
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+.hero-actions{
+ display:flex;
+ flex-wrap:wrap;
+ gap:16px;
+ align-items:center;
+}
+.hero-meta{
+ margin-top:42px;
+ padding-top:28px;
+ border-top:3px dashed rgba(121, 29, 122, 0.2);
+ display:flex;
+ gap:36px;
+ flex-wrap:wrap;
+ font-size:.9rem;
+ color:var(--purple);
+ text-transform:uppercase;
+ letter-spacing:1px;
+ font-weight:700;
+}
+.hero-meta span{display:flex;align-items:center;gap:10px;}
+.dot{
+ display:inline-block;
+ width:12px;height:12px;
+ background:var(--green);
+ border: 2px solid var(--purple);
+ border-radius:999px;
+ animation:pulse 2s infinite;
+}
+@keyframes pulse{
+ 0%{box-shadow:0 0 0 0 rgba(131, 193, 67, 0.6);}
+ 70%{box-shadow:0 0 0 12px rgba(131, 193, 67, 0);}
+ 100%{box-shadow:0 0 0 0 rgba(131, 193, 67, 0);}
 }
 
-.cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(242,92,162,0.4);
+/* Hero Portrait - Toy Box Window Style */
+.hero-card{
+ position:relative;
+ z-index:1;
+ transform:translateY(-10px) rotate(2deg);
+ transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hero-card:hover {
+ transform:translateY(0px) rotate(0deg);
+}
+.portrait-container{
+ position:relative;
+ border-radius:40px;
+ overflow:hidden;
+ border:12px solid white;
+ box-shadow: var(--shadow-lg);
+ aspect-ratio:10/14;
+ background: var(--lav);
+}
+.real-photo{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position: center 20%;
+ display:block;
+ transition: transform 0.5s ease;
+}
+.hero-card:hover .real-photo {
+ transform: scale(1.05);
 }
 
-.hero-right {
-  width: 50%;
-  background: linear-gradient(135deg, var(--pink), var(--lavender));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+.badge{
+ position:absolute;
+ left:-30px;
+ bottom:30px;
+ background:var(--gold);
+ color:var(--purple);
+ border-radius:24px;
+ padding:20px 24px;
+ max-width:280px;
+ font-weight:600;
+ font-size:.95rem;
+ line-height:1.4;
+ border: 3px solid var(--purple);
+ box-shadow: var(--shadow);
+ z-index:2;
+ transform: rotate(-4deg);
+}
+.badge strong{
+ display:block;
+ color:var(--hot);
+ font-family: 'Titan One', cursive;
+ font-size:1.1rem;
+ letter-spacing:1px;
+ text-transform:uppercase;
+ margin-bottom:6px;
 }
 
-.hero-image {
-  width: 40%;
-  border-radius: 20px;
-  animation: float 5s ease-in-out infinite;
+/* Playful floating stars inspired by logo */
+.floating-star {
+ position: absolute;
+ color: var(--cyan);
+ font-family: 'Titan One', cursive;
+ font-size: 2rem;
+ animation: float 4s ease-in-out infinite;
+ z-index: 0;
+ text-shadow: 2px 2px 0 var(--purple);
 }
+.fs-1 { top: 15%; right: 40%; animation-delay: 0s; font-size: 3rem; color: var(--hot);}
+.fs-2 { top: 35%; right: 48%; animation-delay: 1s; font-size: 1.5rem; color: var(--orange);}
+.fs-3 { bottom: 25%; left: 45%; animation-delay: 2s; font-size: 2.5rem; color: var(--green);}
 
 @keyframes float {
-  50% { transform: translateY(-15px); }
+ 0%, 100% { transform: translateY(0) rotate(0deg); }
+ 50% { transform: translateY(-15px) rotate(15deg); }
 }
 
-/* SECTIONS */
-.section {
-  padding: 100px 60px;
-  text-align: center;
+/* ====== MARQUEE ====== */
+.marquee{
+ background:var(--hot);
+ color:white;
+ padding:24px 0;
+ font-size:1.8rem;
+ border-top:4px solid var(--purple);
+ border-bottom:4px solid var(--purple);
+ box-shadow: 0 8px 0 rgba(121, 29, 122, 0.15);
+}
+.marquee-track{
+ display:flex;
+ width:max-content;
+ animation:scroll 25s linear infinite;
+ gap:42px;
+ padding-right:42px;
+}
+.marquee span{display:flex;align-items:center;gap:42px;}
+.marquee .star.c1 { color: var(--gold); }
+.marquee .star.c2 { color: var(--cyan); }
+.marquee .star.c3 { color: var(--green); }
+.marquee .star.c4 { color: var(--orange); }
+
+@keyframes scroll{
+ from{transform:translateX(0);}
+ to{transform:translateX(-50%);}
 }
 
-.section h2 {
-  color: var(--purple);
-  font-size: 40px;
-  margin-bottom: 40px;
+/* ====== PRESS STRIP ====== */
+.press-strip{
+ background:white;
+ padding:42px 7%;
+ border-bottom:3px dashed rgba(121, 29, 122, 0.2);
+}
+.press-strip-inner{
+ display:flex;
+ align-items:center;
+ gap:50px;
+ flex-wrap:wrap;
+ justify-content:center;
+}
+.press-label{
+ font-family: 'Titan One', cursive;
+ font-size:1rem;
+ color:var(--lav);
+}
+.press-logo{
+ font-family:'Titan One', cursive;
+ font-size:1.4rem;
+ color:var(--muted);
+ transition:color .2s ease, transform .2s ease;
+}
+.press-logo:hover{color:var(--cyan); transform: scale(1.1) rotate(-2deg);}
+
+/* ====== ABOUT ====== */
+.about{
+ display:grid;
+ grid-template-columns:.9fr 1.1fr;
+ gap:60px;
+ align-items:start;
+}
+.about-box{
+ background:white;
+ padding:48px;
+ border-radius:40px;
+ box-shadow:var(--shadow);
+ border:3px solid var(--purple);
+}
+.about-box p{
+ font-size:1.15rem;
+ margin:0 0 20px;
+ font-weight: 500;
+}
+.about-box p:last-of-type{margin-bottom:0;}
+.signature{
+ margin-top:30px;
+ padding-top:28px;
+ border-top:3px dashed rgba(121, 29, 122, 0.2);
+ font-family:'Titan One', cursive;
+ font-size:1.8rem;
+ color:var(--hot);
+ transform: rotate(-3deg);
+ display: inline-block;
+}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:16px;
+ margin-top:36px;
+}
+.stat{
+ background: var(--cream);
+ border-radius:24px;
+ padding:24px 18px;
+ border:3px solid var(--purple);
+ box-shadow: 4px 4px 0 var(--shadow-color);
+ text-align: center;
+}
+.stat strong{
+ font-size:2.5rem;
+ color:var(--cyan);
+}
+.stat:nth-child(2) strong { color: var(--hot); }
+.stat:nth-child(3) strong { color: var(--orange); }
+
+.stat span{
+ display:block;
+ margin-top:8px;
+ font-size:.85rem;
+ color:var(--purple);
+ text-transform:uppercase;
+ font-weight:700;
+ letter-spacing: 1px;
 }
 
-/* CARDS */
-.cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+/* ====== PACKAGES ====== */
+.cards{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:32px;
+ margin-top:48px;
+}
+.card{
+ background:white;
+ border-radius:40px;
+ padding:42px 32px;
+ box-shadow:var(--shadow);
+ border:3px solid var(--purple);
+ transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow .3s ease;
+ display:flex;
+ flex-direction:column;
+ position:relative;
+}
+.card.featured{
+ background:var(--hot);
+ color:white;
+ transform:translateY(-10px);
+}
+.card.featured::before{
+ content:"Most Booked!";
+ position:absolute;
+ top:-20px;
+ left:50%;
+ transform:translateX(-50%) rotate(-3deg);
+ background:var(--gold);
+ color:var(--purple);
+ font-size:.9rem;
+ font-family: 'Titan One', cursive;
+ padding:10px 24px;
+ border-radius:999px;
+ border: 3px solid var(--purple);
+ box-shadow: 3px 3px 0 var(--purple);
+ white-space: nowrap;
+}
+.card:hover{
+ transform:translateY(-14px);
+ box-shadow:var(--shadow-lg);
+}
+.card.featured:hover{transform:translateY(-18px);}
+.card h3{
+ font-size:1.8rem;
+ margin-bottom:12px;
+}
+.card.featured h3{color:var(--gold);}
+.card .price{
+ font-size:3rem;
+ color:var(--hot);
+ margin:16px 0 6px;
+}
+.card.featured .price{color:white;}
+.card .price small{font-size:1rem;color:var(--muted);font-weight:700;font-family:'Fredoka',sans-serif;}
+.card.featured .price small{color:var(--gold);}
+.card p.lead{
+ color:var(--muted);
+ margin:0 0 24px;
+ font-weight: 500;
+}
+.card.featured p.lead{color:#fff;}
+.card ul{
+ padding:0;
+ margin:0 0 32px;
+ list-style:none;
+ flex-grow:1;
+}
+.card ul li{
+ padding:12px 0;
+ padding-left:32px;
+ position:relative;
+ font-size:1.05rem;
+ font-weight: 500;
+ border-top:2px dashed rgba(121, 29, 122, 0.15);
+}
+.card.featured ul li{
+ border-top-color:rgba(255,255,255,.2);
+}
+.card ul li:first-child{border-top:0;}
+.card ul li::before{
+ content:"✦";
+ position:absolute;
+ left:0;
+ top:12px;
+ color:var(--cyan);
+ font-size:1.1rem;
+ font-family: 'Titan One', cursive;
+}
+.card.featured ul li::before{color:var(--gold);}
+
+/* ====== GALLERY ====== */
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:24px;
+ margin-top:48px;
+}
+.look{
+ aspect-ratio:3/4;
+ border-radius:36px;
+ overflow:hidden;
+ position:relative;
+ box-shadow:var(--shadow);
+ border: 4px solid white;
+ cursor:pointer;
+ transition:transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.look:hover{transform:scale(1.05) rotate(-2deg);}
+.look:nth-child(even):hover{transform:scale(1.05) rotate(2deg);}
+.look svg{
+ width:100%;
+ height:100%;
+ display:block;
+}
+.look-tag{
+ position:absolute;
+ left:16px;
+ bottom:16px;
+ background:white;
+ color:var(--purple);
+ padding:10px 20px;
+ border-radius:999px;
+ font-weight:700;
+ font-size:.85rem;
+ text-transform:uppercase;
+ letter-spacing:1px;
+ border: 2px solid var(--purple);
+ box-shadow: 2px 2px 0 var(--purple);
+}
+.look-num{
+ position:absolute;
+ right:16px;
+ top:16px;
+ background:var(--gold);
+ color:var(--purple);
+ width:46px;
+ height:46px;
+ border-radius:999px;
+ font-size:1.2rem;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border: 2px solid var(--purple);
+ box-shadow: 2px 2px 0 var(--purple);
 }
 
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 280px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: 0.3s;
+/* ====== REEL / VIDEO ====== */
+.reel{
+ background: var(--cyan);
+ border-top: 4px solid var(--purple);
+ border-bottom: 4px solid var(--purple);
+ position:relative;
+ overflow:hidden;
+}
+.reel::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:
+   radial-gradient(circle at 80% 20%, rgba(226, 27, 115, 0.2), transparent 40%),
+   radial-gradient(circle at 20% 80%, rgba(247, 205, 89, 0.2), transparent 40%);
+}
+.reel h2{color:var(--purple);}
+.reel .editorial{color:white;}
+.reel-grid{
+ display:grid;
+ grid-template-columns:1.4fr 1fr;
+ gap:50px;
+ align-items:center;
+ margin-top:48px;
+ position:relative;
+ z-index:1;
+}
+.reel-video{
+ aspect-ratio:16/9;
+ background:var(--purple);
+ border-radius:32px;
+ border:6px solid white;
+ position:relative;
+ overflow:hidden;
+ box-shadow:var(--shadow-lg);
+ cursor:pointer;
+ transition:transform .3s ease;
+}
+.reel-video:hover{transform:scale(1.02);}
+.play-btn{
+ position:absolute;
+ top:50%;
+ left:50%;
+ transform:translate(-50%,-50%);
+ width:90px;
+ height:90px;
+ background:var(--hot);
+ border: 4px solid white;
+ border-radius:999px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+ transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reel-video:hover .play-btn{transform:translate(-50%,-50%) scale(1.15);}
+.play-btn svg{width:34px;height:34px;color:white;margin-left:6px;}
+.reel-caption{
+ position:absolute;
+ bottom:20px;
+ left:20px;
+ background:white;
+ color:var(--purple);
+ padding:10px 18px;
+ border-radius:999px;
+ font-size:.9rem;
+ font-weight:700;
+ border: 2px solid var(--purple);
+}
+.reel p{color:var(--ink);font-size:1.15rem; font-weight: 500;}
+.reel-list{
+ list-style:none;
+ padding:0;
+ margin:24px 0 0;
+}
+.reel-list li{
+ background: white;
+ margin-bottom: 12px;
+ padding:18px 24px;
+ border-radius: 20px;
+ border: 3px solid var(--purple);
+ box-shadow: 3px 3px 0 var(--shadow-color);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:16px;
+ transition: transform .2s ease;
+}
+.reel-list li:hover { transform: translateY(-3px); }
+.reel-list .reel-title{font-weight:700;color:var(--purple); font-size: 1.1rem;}
+.reel-list .reel-meta{color:var(--muted);font-size:.9rem; margin-top:4px;}
+
+/* ====== TOUR DATES ====== */
+.tour-list{
+ margin-top:48px;
+ background: white;
+ border-radius: 40px;
+ border: 3px solid var(--purple);
+ box-shadow: var(--shadow);
+ padding: 10px 30px;
+}
+.tour-item{
+ display:grid;
+ grid-template-columns:140px 1fr 1fr auto;
+ gap:30px;
+ align-items:center;
+ padding:30px 0;
+ border-bottom:3px dashed rgba(121, 29, 122, 0.15);
+ transition:padding .25s ease;
+}
+.tour-item:last-child { border-bottom: none; }
+.tour-item:hover{padding-left:14px;}
+.tour-date{
+ color:var(--hot);
+ font-size:1.1rem;
+ letter-spacing:1px;
+ text-transform:uppercase;
+ font-weight: 700;
+}
+.tour-date strong{
+ display:block;
+ font-size:2.8rem;
+ color:var(--purple);
+ line-height:1;
+ margin-bottom:4px;
+}
+.tour-event{
+ font-weight:700;
+ font-size:1.25rem;
+ color:var(--purple);
+}
+.tour-event small{
+ display:block;
+ font-weight:500;
+ color:var(--muted);
+ font-size:.95rem;
+ margin-top:6px;
+}
+.tour-venue{color:var(--muted);font-size:1rem; font-weight: 500;}
+.tour-status{
+ font-size:.85rem;
+ text-transform:uppercase;
+ letter-spacing: 1px;
+ font-weight:700;
+ padding:12px 24px;
+ border-radius:999px;
+ border: 2px solid var(--purple);
+ box-shadow: 2px 2px 0 var(--purple);
+}
+.tour-status.tickets{background:var(--gold);color:var(--purple);}
+.tour-status.tickets:hover { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--purple); }
+.tour-status.sold{background:#eee;color:#888; border-color: #aaa; box-shadow: none;}
+.tour-status.private{background:var(--cyan);color:white;}
+
+/* ====== TESTIMONIALS ====== */
+.testimonials{
+ background: var(--purple);
+ color:white;
+ position:relative;
+ overflow:hidden;
+}
+.testimonials h2{color:white;}
+.testimonials .editorial{color:var(--gold);}
+.quote-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:24px;
+ margin-top:48px;
+ position:relative;
+}
+.quote{
+ background: white;
+ border: 3px solid var(--gold);
+ border-radius: 36px;
+ padding:42px 32px;
+ box-shadow: 6px 6px 0 var(--gold);
+}
+.quote:nth-child(2) { border-color: var(--hot); box-shadow: 6px 6px 0 var(--hot); }
+.quote:nth-child(3) { border-color: var(--cyan); box-shadow: 6px 6px 0 var(--cyan); }
+
+.quote-stars{
+ color:var(--gold);
+ margin-bottom:16px;
+ letter-spacing:2px;
+ font-size: 1.2rem;
+}
+.quote p{
+ color:var(--purple);
+ font-size:1.15rem;
+ font-weight: 600;
+ line-height:1.6;
+ margin:0 0 24px;
+}
+.quote-author{
+ display:flex;
+ align-items:center;
+ gap:16px;
+}
+.quote-avatar{
+ width:54px;
+ height:54px;
+ border-radius:999px;
+ background:var(--lav);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:white;
+ font-family:'Titan One', cursive;
+ font-size:1.6rem;
+ border: 3px solid var(--purple);
+}
+.quote:nth-child(1) .quote-avatar { background: var(--gold); color: var(--purple);}
+.quote:nth-child(2) .quote-avatar { background: var(--hot); }
+.quote:nth-child(3) .quote-avatar { background: var(--cyan); }
+
+.quote strong{
+ display:block;
+ color:var(--purple);
+ font-size:1.1rem;
+ font-weight:700;
+}
+.quote span{
+ color:var(--muted);
+ font-size:.9rem;
+ font-weight: 500;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+/* ====== PRESS KIT ====== */
+.epk{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:50px;
+ align-items:center;
+}
+.epk-content{padding-right:20px;}
+.epk-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:20px;
+ margin-top:30px;
+}
+.epk-item{
+ background:white;
+ border:3px solid var(--purple);
+ box-shadow: 4px 4px 0 var(--shadow-color);
+ border-radius:28px;
+ padding:24px;
+ display:flex;
+ align-items:center;
+ gap:16px;
+ transition:transform .2s ease;
+}
+.epk-item:hover{
+ transform:translateY(-4px);
+}
+.epk-icon{
+ flex-shrink:0;
+ width:50px;
+ height:50px;
+ border-radius:16px;
+ background:var(--gold);
+ border: 2px solid var(--purple);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:var(--purple);
+}
+.epk-item:nth-child(2) .epk-icon { background: var(--hot); color: white;}
+.epk-item:nth-child(3) .epk-icon { background: var(--cyan); color: white;}
+.epk-item:nth-child(4) .epk-icon { background: var(--green); color: white;}
+
+.epk-item strong{
+ display:block;
+ color:var(--purple);
+ font-size:1.1rem;
+ margin-bottom:4px;
+}
+.epk-item span{color:var(--muted);font-size:.9rem; font-weight: 500;}
+
+/* ====== BOOKING ====== */
+.booking{
+ display:grid;
+ grid-template-columns:.9fr 1.1fr;
+ gap:60px;
+ align-items:start;
+}
+.booking-info{
+ background: var(--purple);
+ color:white;
+ padding:50px;
+ border-radius:40px;
+ box-shadow:var(--shadow-lg);
+ position:sticky;
+ top:120px;
+ border: 4px solid var(--gold);
+}
+.booking-info h2{color:white;}
+.booking-info .editorial{color:var(--hot);}
+.booking-info p{color:white; font-size: 1.1rem;}
+.contact-list{
+ list-style:none;
+ padding:0;
+ margin:36px 0 0;
+}
+.contact-list li{
+ padding:20px 0;
+ border-top:2px dashed rgba(255,255,255,.2);
+ display:flex;
+ align-items:center;
+ gap:16px;
+}
+.contact-list li:first-child{border-top:0;}
+.contact-list strong{
+ display:block;
+ font-size:.85rem;
+ text-transform:uppercase;
+ letter-spacing:1px;
+ color:var(--gold);
+ margin-bottom:6px;
+ font-weight: 700;
+}
+.contact-list a{color:white;font-weight:600; font-size: 1.1rem;}
+.contact-list a:hover{color:var(--cyan);}
+
+form{
+ background:white;
+ padding:50px;
+ border-radius:40px;
+ box-shadow:var(--shadow);
+ display:grid;
+ gap:24px;
+ border:3px solid var(--purple);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.field{display:flex;flex-direction:column;gap:8px;}
+label{
+ font-weight:700;
+ color:var(--purple);
+ font-size:.95rem;
+}
+label .req{color:var(--hot);}
+input,textarea,select{
+ width:100%;
+ padding:16px 20px;
+ border:3px solid rgba(121, 29, 122, 0.2);
+ border-radius:20px;
+ font-family:inherit;
+ font-size:1.05rem;
+ background:var(--cream);
+ color:var(--ink);
+ transition:border-color .2s ease, background .2s ease;
+ font-weight: 500;
+}
+input:focus,textarea:focus,select:focus{
+ outline:none;
+ border-color:var(--hot);
+ background:white;
+}
+textarea{
+ min-height:160px;
+ resize:vertical;
+}
+.form-note{
+ font-size:.9rem;
+ color:var(--muted);
+ margin:0;
+ font-weight: 500;
+}
+.form-success{
+ display:none;
+ padding:20px;
+ background:rgba(131, 193, 67, 0.15);
+ color:#427a15;
+ border:3px solid var(--green);
+ border-radius:20px;
+ font-weight:700;
+ text-align:center;
+}
+.form-success.show{display:block;}
+
+/* ====== NEWSLETTER ====== */
+.newsletter{
+ background:var(--hot);
+ color:white;
+ padding:80px 7%;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ border-top: 4px solid var(--purple);
+}
+.newsletter::before,
+.newsletter::after{
+ content:"✦";
+ position:absolute;
+ font-size:8rem;
+ color:var(--gold);
+ font-family: 'Titan One', cursive;
+}
+.newsletter::before{top:10%;left:8%; transform: rotate(-15deg);}
+.newsletter::after{bottom:10%;right:8%;animation:twinkle 3s ease-in-out infinite;}
+.newsletter h2{
+ color:white;
+ font-size:clamp(3rem,6vw,4.5rem);
+ position:relative;
+}
+.newsletter p{color:white; font-size: 1.2rem; font-weight: 500; max-width:600px; margin:14px auto 36px; position:relative;}
+.newsletter-form{
+ display:flex;
+ max-width:560px;
+ margin:0 auto;
+ gap:12px;
+ position:relative;
+}
+.newsletter-form input{
+ flex:1;
+ padding:20px 28px;
+ border:3px solid var(--purple);
+ border-radius:999px;
+ font-size:1.1rem;
+ background:white;
+ box-shadow: 4px 4px 0 var(--purple);
+}
+.newsletter-form button{
+ padding:20px 40px;
+ border-radius:999px;
+ background:var(--gold);
+ color:var(--purple);
+ border:3px solid var(--purple);
+ font-weight:700;
+ text-transform:uppercase;
+ letter-spacing:1px;
+ font-size:1.1rem;
+ cursor:pointer;
+ box-shadow: 4px 4px 0 var(--purple);
+ transition:transform .15s ease, box-shadow .15s ease;
+ font-family: 'Titan One', cursive;
+}
+.newsletter-form button:hover{
+ transform: translate(2px,2px);
+ box-shadow: 2px 2px 0 var(--purple);
 }
 
-/* GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
+/* ====== FOOTER ====== */
+.footer{
+ background:var(--cream);
+ color:var(--purple);
+ padding:70px 7% 30px;
+}
+.footer-grid{
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr 1fr;
+ gap:50px;
+ padding-bottom:50px;
+ border-bottom:3px dashed rgba(121, 29, 122, 0.2);
+}
+.footer-brand{
+ font-size:2.8rem;
+ letter-spacing:1px;
+ text-transform:uppercase;
+ display:flex;
+ align-items:center;
+ gap:16px;
+ color: var(--purple);
+}
+.footer-brand .logo-img{height:70px;width:auto;}
+.footer-tag{
+ font-family:'Titan One', cursive;
+ color:var(--hot);
+ margin:18px 0 28px;
+ font-size:1.4rem;
+}
+.footer-col h4{
+ font-size:1.1rem;
+ text-transform:uppercase;
+ letter-spacing:1px;
+ color:var(--cyan);
+ margin-bottom:20px;
+}
+.footer-col ul{list-style:none;padding:0;margin:0;}
+.footer-col li{margin:12px 0;}
+.footer-col a{
+ color:var(--muted);
+ transition:color .2s ease;
+ font-size:1.05rem;
+ font-weight: 600;
+}
+.footer-col a:hover{color:var(--hot);}
+.socials{display:flex;gap:12px;}
+.social-link{
+ width:48px;
+ height:48px;
+ border-radius:999px;
+ background:white;
+ border: 2px solid var(--purple);
+ box-shadow: 3px 3px 0 var(--purple);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:var(--purple);
+ transition:transform .15s ease, box-shadow .15s ease;
+}
+.social-link:hover{
+ background:var(--gold);
+ transform:translate(2px, 2px);
+ box-shadow: 1px 1px 0 var(--purple);
+}
+.social-link svg{width:22px;height:22px;}
+.footer-bottom{
+ padding-top:30px;
+ display:flex;
+ justify-content:space-between;
+ flex-wrap:wrap;
+ gap:16px;
+ color:var(--muted);
+ font-size:.95rem;
+ font-weight: 500;
+}
+.footer-bottom a{color:var(--muted); font-weight: 700;}
+.footer-bottom a:hover{color:var(--hot);}
+
+/* ====== REVEAL ANIMATIONS ====== */
+.reveal{
+ opacity:0;
+ transform:translateY(40px);
+ transition:opacity .6s ease-out, transform .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reveal.active{
+ opacity:1;
+ transform:translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+ *,*::before,*::after{
+   animation-duration:.01ms !important;
+   animation-iteration-count:1 !important;
+   transition-duration:.01ms !important;
+   scroll-behavior:auto !important;
+ }
+ .reveal{opacity:1;transform:none;}
 }
 
-.gallery img {
-  width: 40%; /* Assuming you want to keep your original sizing here */
-  border-radius: 15px;
+/* ====== RESPONSIVE ====== */
+@media(max-width:1024px){
+ .hero,.about,.booking,.reel-grid,.epk{grid-template-columns:1fr;}
+ .booking-info{position:static;}
+ .footer-grid{grid-template-columns:1fr 1fr;}
+ .tour-item{grid-template-columns:100px 1fr auto;}
+ .tour-venue{grid-column:2; font-size:.9rem;}
+ .tour-status{grid-column:3;}
 }
-
-/* MERCH SECTION */
-.merch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.merch-item {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
-}
-
-.merch-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.merch-item img {
-  width: 100%;
-  border-radius: 10px;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-.merch-title {
-  margin-top: 15px;
-  font-weight: 700;
-  color: var(--purple);
-  font-size: 18px;
-}
-
-.merch-price {
-  color: var(--pink);
-  font-weight: 500;
-  margin-top: 5px;
-}
-
-/* MUSIC SECTION */
-.music-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-  background: var(--custard-yellow);
-  padding: 50px;
-  border-radius: 30px;
-  max-width: 1000px;
-  margin: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.album-art {
-  width: 300px;
-  height: 300px;
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.tracklist {
-  text-align: left;
-  flex: 1;
-  min-width: 300px;
-}
-
-.tracklist h3 {
-  color: var(--purple);
-  margin-top: 0;
-  font-size: 24px;
-}
-
-.track {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.track span {
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-audio {
-  width: 100%;
-  height: 40px;
-  outline: none;
-}
-
-/* TESTIMONIAL */
-.testimonial {
-  max-width: 600px;
-  margin: auto;
-  font-style: italic;
-  font-size: 20px;
-  color: var(--purple);
-}
-
-/* FOOTER */
-.footer {
-  padding: 40px;
-  text-align: center;
-  background: var(--purple);
-  color: white;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .hero { flex-direction: column; }
-  .hero-left, .hero-right { width: 100%; }
-  .headline { font-size: 50px; }
-  .header { padding: 15px 20px; }
-  nav { display: none; /* Might want to add a hamburger menu later! */ }
+@media(max-width:720px){
+ .section{padding:70px 6%;}
+ .header{padding:12px 6%;}
+ .hero{padding:140px 6% 50px;}
+ .cards,.gallery,.quote-grid,.stats,.epk-grid{grid-template-columns:1fr;}
+ .gallery{grid-template-columns:1fr 1fr;}
+ .form-row{grid-template-columns:1fr;}
+ .footer-grid{grid-template-columns:1fr;gap:40px;}
+ .nav{
+   display:none;
+   position:absolute;
+   top:84px;
+   left:6%;
+   right:6%;
+   background:white;
+   padding:30px;
+   border-radius:32px;
+   border: 3px solid var(--purple);
+   box-shadow:var(--shadow-lg);
+   flex-direction:column;
+   align-items:flex-start;
+   gap:12px;
+ }
+ .nav a{padding:10px 0;width:100%; font-size: 1.2rem;}
+ .nav .nav-cta{width:100%;justify-content:center;margin-top:12px;}
+ .nav.open{display:flex;}
+ .menu-btn{display:flex;}
+ .scroll-cue{display:none;}
+ .card.featured{transform:none;}
+ .card.featured:hover{transform:translateY(-10px);}
+ .tour-item{grid-template-columns:1fr;gap:12px;padding:26px 0;}
+ .tour-date strong{font-size:2.2rem;display:inline;margin-right:12px;}
+ .newsletter-form{flex-direction:column;}
+ .booking-info,.about-box,form{padding:30px;}
+ .badge { position: relative; left: 0; bottom: 0; margin-top: -20px; width: 100%; max-width: 100%; text-align: center; transform: none;}
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<header class="header">
-  <img src="https://i.postimg.cc/c4Lz0Mzv/Untitled-design-3.png" class="logo-img" alt="Poppins Logo">
-  <nav>
-    <a href="#about">About</a>
-    <a href="#shows">Shows</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#merch">Merch</a>
-    <a href="#music">Music</a>
-    <a href="#book">Book</a>
-  </nav>
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- ============ HEADER ============ -->
+
+<header class="header" id="header">
+ <a href="#" class="logo-wrap" aria-label="Poppins home">
+   <!-- Updated with new logo -->
+   <img src="Untitled design-4.svg" class="logo-img" alt="Poppins Logo" />
+ </a>
+ <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+ </button>
+ <nav class="nav" id="nav" aria-label="Main navigation">
+   <a href="#about">About</a>
+   <a href="#packages">Packages</a>
+   <a href="#gallery">Looks</a>
+   <a href="#reel">Reel</a>
+   <a href="#tour">Shows</a>
+   <a href="#reviews">Reviews</a>
+   <a href="#book" class="nav-cta">Book Poppins</a>
+ </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-left">
-    <p class="subtitle">FROM THE HOUSE OF POPPINS</p>
-    <h1 class="headline">Even Garbage<br>Can Sparkle</h1>
-    <button class="cta" onclick="scrollToSection('book')">Book a Show</button>
-  </div>
+<main id="main">
 
-  <div class="hero-right">
-    <img src="https://i.postimg.cc/bw8sZrQw/d81a04c3-ff5e-4308-ab68-c6792bc19015.png" class="hero-image" alt="Poppins Hero">
-  </div>
+<!-- ============ HERO ============ -->
+
+<section class="hero" aria-label="Introduction">
+  <span class="floating-star fs-1">✦</span>
+ <span class="floating-star fs-2">✦</span>
+  <div class="hero-copy reveal">
+   <div class="eyebrow">The House of Poppins</div>
+   <h1>
+     <div class="dark-text">EVEN</div>
+     <div class="dark-text">GARBAGE</div>
+     <div class="sparkle-text">CAN</div>
+     <div class="sparkle-text">SPARKLE</div>
+   </h1>
+   <p class="hero-text">
+     Camp. Couture. Chaos. Poppins brings high-glam drag, comedy,
+     and full-throttle performance energy to stages, parties...
+   </p>
+   <div class="hero-actions">
+     <a href="#book" class="btn">Book Poppins ✨</a>
+     <a href="#reel" class="btn secondary">Watch the Reel</a>
+   </div>
+   <div class="hero-meta">
+     <span><span class="dot" aria-hidden="true"></span>Now Booking 2026</span>
+     <span>✦ Based in the U.S.</span>
+     <span>✦ Travel-Ready</span>
+   </div>
+ </div>
+
+ <div class="hero-card reveal">
+   <span class="floating-star fs-3">✦</span>
+   <div class="portrait-container">
+     <img src="https://i.postimg.cc/Xq1FQTCw/poppins-use-hero.png" alt="Poppins, holding a heavily bedazzled pink vacuum cleaner on a glitzy stage" class="real-photo" onerror="this.src='https://placehold.co/800x1100/FFF9ED/791D7A?text=Poppins+Photo';"/>
+   </div>
+   <div class="badge">
+     <strong>Now Booking</strong>
+     Shows, brunches, Pride, private parties & special appearances
+   </div>
+ </div>
+
+ <a href="#about" class="scroll-cue" aria-label="Scroll down">
+   Scroll
+   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+ </a>
 </section>
 
-<section id="about" class="section">
-  <h2>Meet Poppins</h2>
-  <p>High glam. High camp. High chaos. Poppins transforms every space into a full fantasy experience.</p>
+<!-- ============ MARQUEE ============ -->
+
+<div class="marquee" role="presentation" aria-hidden="true">
+ <div class="marquee-track">
+   <span>Drag Performer <em class="star c1">✦</em> Host <em class="star c2">✦</em> Camp Queen <em class="star c3">✦</em> Glamour Goblin <em class="star c4">✦</em> Event Icon <em class="star c1">✦</em> Drag Brunch Royalty <em class="star c2">✦</em> Pride Headliner <em class="star c3">✦</em> </span>
+   <span>Drag Performer <em class="star c1">✦</em> Host <em class="star c2">✦</em> Camp Queen <em class="star c3">✦</em> Glamour Goblin <em class="star c4">✦</em> Event Icon <em class="star c1">✦</em> Drag Brunch Royalty <em class="star c2">✦</em> Pride Headliner <em class="star c3">✦</em> </span>
+ </div>
+</div>
+
+<!-- ============ PRESS STRIP ============ -->
+
+<section class="press-strip" aria-label="As featured at">
+ <div class="press-strip-inner">
+   <span class="press-label">As Featured At</span>
+   <span class="press-logo">Hamburger Mary's</span>
+   <span class="press-logo">Pride Fest</span>
+   <span class="press-logo">The Roxy</span>
+   <span class="press-logo">Mistress Brunch</span>
+   <span class="press-logo">House of Yes</span>
+ </div>
 </section>
 
-<section id="shows" class="section">
-  <h2>Shows & Services</h2>
-  <div class="cards">
-    <div class="card">Private Events</div>
-    <div class="card">Drag Brunch</div>
-    <div class="card">Club Performances</div>
-  </div>
+<!-- ============ ABOUT ============ -->
+
+<section id="about" class="section about">
+ <div class="reveal">
+   <div class="eyebrow">Meet the Queen</div>
+   <h2>Poppins is not<br>your average<br><span class="editorial">pretty girl.</span></h2>
+ </div>
+ <div class="about-box reveal">
+   <p>
+     Poppins is where polished glamour meets chaotic sparkle. She serves
+     comedy, fashion, theatrical performance, and crowd work with a wink,
+     a stomp, and a suspicious amount of glitter.
+   </p>
+   <p>
+     Whether you need a quick pop-in number, a hosted brunch, a Pride
+     headliner, or a fully produced private fantasy, Poppins brings the
+     kind of energy people talk about long after the lights go down — and
+     the professionalism that gets her invited back.
+   </p>
+   <div class="stats">
+     <div class="stat"><strong>250+</strong><span>Shows Booked</span></div>
+     <div class="stat"><strong>40+</strong><span>Venues Played</span></div>
+     <div class="stat"><strong>5★</strong><span>Average Review</span></div>
+   </div>
+   <div class="signature">even garbage can sparkle</div>
+ </div>
 </section>
+
+<!-- ============ PACKAGES ============ -->
+
+<section id="packages" class="section">
+ <div class="reveal" style="max-width:780px;">
+   <div class="eyebrow">Booking Packages</div>
+   <h2>Book a moment, a show, or a <span class="editorial">full fantasy.</span></h2>
+   <p style="color:var(--muted);font-size:1.15rem;margin-top:18px; font-weight:500;">Every package is fully customizable. Travel, lodging, tech rider, and additional performers available on request.</p>
+ </div>
+ <div class="cards">
+
+<div class="card reveal">
+ <h3>Pop-In Appearance</h3>
+ <p class="lead">A surprise of sparkle. Perfect for birthdays, bachelorettes, and short stage moments.</p>
+ <div class="price">$150<small> +</small></div>
+ <ul>
+   <li>1 signature performance</li>
+   <li>Photo &amp; meet moment</li>
+   <li>Brief crowd interaction</li>
+   <li>Up to 30 minutes on-site</li>
+ </ul>
+ <a href="#book" class="btn secondary">Request Pop-In</a>
+</div>
+
+<div class="card featured reveal">
+ <h3>Full Show</h3>
+ <p class="lead">The classic Poppins experience. Multiple numbers, hosting, and full crowd command.</p>
+ <div class="price">$400<small> +</small></div>
+ <ul>
+   <li>3–4 performance numbers</li>
+   <li>Hosting / emcee option</li>
+   <li>Full crowd interaction</li>
+   <li>Up to 90 minutes on-site</li>
+   <li>Custom song requests</li>
+ </ul>
+ <a href="#book" class="btn">Request Full Show</a>
+</div>
+
+<div class="card reveal">
+ <h3>Premium Event</h3>
+ <p class="lead">A bespoke production for the events that need to be remembered.</p>
+ <div class="price">$800<small> +</small></div>
+ <ul>
+   <li>Custom-themed numbers</li>
+   <li>Hosting + meet &amp; greet</li>
+   <li>Branded set or moment</li>
+   <li>Up to 3 hours on-site</li>
+   <li>Multi-look wardrobe</li>
+ </ul>
+ <a href="#book" class="btn secondary">Request Premium</a>
+</div>
+
+ </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
 
 <section id="gallery" class="section">
-  <h2>Looks</h2>
-  <div class="gallery">
-    <img src="https://i.postimg.cc/PrLq3cjx/Untitled-design-6.png" alt="Look 1">
-    <img src="https://i.postimg.cc/bJX0rbRy/Untitled-design-4.png" alt="Look 2">
-    <img src="https://i.postimg.cc/sxhtS5kn/Untitled-design-5.png" alt="Look 3">
-  </div>
+ <div class="reveal" style="max-width:780px;">
+   <div class="eyebrow">The Looks</div>
+   <h2>Glamour with a little <span class="editorial">garbage</span> — in the best way.</h2>
+ </div>
+ <div class="gallery">
+  
+   <figure class="look reveal" tabindex="0">
+     <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+       <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E21B73"/><stop offset="100%" stop-color="#38BDCD"/></linearGradient></defs>
+       <rect width="300" height="400" fill="url(#g1)"/>
+       <circle cx="150" cy="140" r="70" fill="#791D7A" opacity=".7"/>
+       <path d="M80 280 Q150 220 220 280 L240 400 L60 400 Z" fill="#791D7A" opacity=".7"/>
+       <text x="40" y="60" font-family="serif" font-size="32" fill="#F7CD59">✦</text>
+       <text x="240" y="350" font-family="serif" font-size="28" fill="#F7CD59">✦</text>
+     </svg>
+     <div class="look-num">01</div>
+     <figcaption class="look-tag">Glitter Goblin</figcaption>
+   </figure>
+
+<figure class="look reveal" tabindex="0">
+ <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+   <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#791D7A"/><stop offset="100%" stop-color="#3A0C3B"/></linearGradient></defs>
+   <rect width="300" height="400" fill="url(#g2)"/>
+   <circle cx="150" cy="160" r="80" fill="#E21B73" opacity=".85"/>
+   <path d="M70 290 Q150 230 230 290 L250 400 L50 400 Z" fill="#E21B73" opacity=".85"/>
+   <text x="40" y="80" font-family="serif" font-size="40" fill="#F7CD59">✦</text>
+ </svg>
+ <div class="look-num">02</div>
+ <figcaption class="look-tag">Hot Pink Riot</figcaption>
+</figure>
+
+<figure class="look reveal" tabindex="0">
+ <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+   <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F7CD59"/><stop offset="100%" stop-color="#F38120"/></linearGradient></defs>
+   <rect width="300" height="400" fill="url(#g3)"/>
+   <ellipse cx="150" cy="170" rx="90" ry="100" fill="#791D7A" opacity=".7"/>
+   <path d="M70 300 Q150 240 230 300 L240 400 L60 400 Z" fill="#791D7A" opacity=".7"/>
+ </svg>
+ <div class="look-num">03</div>
+ <figcaption class="look-tag">Champagne Camp</figcaption>
+</figure>
+
+<figure class="look reveal" tabindex="0">
+ <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+   <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#83C143"/><stop offset="100%" stop-color="#38BDCD"/></linearGradient></defs>
+   <rect width="300" height="400" fill="url(#g4)"/>
+   <polygon points="150,90 175,180 270,180 195,235 220,330 150,275 80,330 105,235 30,180 125,180" fill="#FFF9ED" opacity=".9"/>
+ </svg>
+ <div class="look-num">04</div>
+ <figcaption class="look-tag">Star Power</figcaption>
+</figure>
+
+<figure class="look reveal" tabindex="0">
+ <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+   <defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D586C6"/><stop offset="100%" stop-color="#791D7A"/></linearGradient></defs>
+   <rect width="300" height="400" fill="url(#g5)"/>
+   <circle cx="150" cy="200" r="100" fill="#FFF9ED" opacity=".15"/>
+   <circle cx="150" cy="200" r="65" fill="#F7CD59" opacity=".9"/>
+   <text x="133" y="222" font-family="'Titan One', cursive" font-size="64" fill="#791D7A">P</text>
+ </svg>
+ <div class="look-num">05</div>
+ <figcaption class="look-tag">House Brunch</figcaption>
+</figure>
+
+<figure class="look reveal" tabindex="0">
+ <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+   <defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3A0C3B"/><stop offset="100%" stop-color="#E21B73"/></linearGradient></defs>
+   <rect width="300" height="400" fill="url(#g6)"/>
+   <path d="M50 200 Q150 100 250 200 Q150 300 50 200 Z" fill="#F7CD59" opacity=".9"/>
+   <circle cx="150" cy="200" r="30" fill="#791D7A"/>
+ </svg>
+ <div class="look-num">06</div>
+ <figcaption class="look-tag">After Midnight</figcaption>
+</figure>
+
+ </div>
 </section>
 
-<section id="merch" class="section">
-  <h2>The Boutique</h2>
-  <div class="merch-grid">
-    <div class="merch-item">
-      <img src="https://i.postimg.cc/T16ZVKTx/1.png" alt="Merch Item">
-      <div class="merch-title">Signature Hoodie</div>
-      <div class="merch-price">$25.00</div>
-    </div>
-    <div class="merch-item">
-      <img src="https://i.postimg.cc/D06Y15CW/2.png" alt="Merch Item">
-      <div class="merch-title">Baby Onsie</div>
-      <div class="merch-price">$15.00</div>
-    </div>
-    <div class="merch-item">
-      <img src="https://i.postimg.cc/Hkk1v852/2.png" alt="Merch Item">
-      <div class="merch-title">Sparkle Mug</div>
-      <div class="merch-price">$18.00</div>
-    </div>
-  </div>
+<!-- ============ REEL ============ -->
+
+<section id="reel" class="section reel">
+ <div class="reveal" style="max-width:780px;">
+   <div class="eyebrow" style="color:var(--hot); border-color:var(--hot);">Performance Reel</div>
+   <h2>The receipts. <span class="editorial">In motion.</span></h2>
+ </div>
+ <div class="reel-grid">
+   <div class="reveal">
+     <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="reel-video" aria-label="Watch the Poppins highlight reel">
+       <div class="play-btn" aria-hidden="true">
+         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+       </div>
+       <div class="reel-caption">2026 Highlight Reel · 2:14</div>
+     </a>
+   </div>
+   <div class="reveal">
+     <p>A taste of what an evening with Poppins actually looks like — the lip syncs, the looks, the laughs, the moments where the entire room loses it.</p>
+     <ul class="reel-list">
+       <li>
+         <div>
+           <div class="reel-title">Pride Mainstage 2026</div>
+           <div class="reel-meta">Lip sync · 3 numbers</div>
+         </div>
+         <a href="#book" style="color:var(--hot);font-family:'Titan One', cursive;font-size:1rem;">Watch →</a>
+       </li>
+       <li>
+         <div>
+           <div class="reel-title">Drag Brunch — House Set</div>
+           <div class="reel-meta">Hosting · 90 min</div>
+         </div>
+         <a href="#book" style="color:var(--hot);font-family:'Titan One', cursive;font-size:1rem;">Watch →</a>
+       </li>
+       <li>
+         <div>
+           <div class="reel-title">Private Wedding Reception</div>
+           <div class="reel-meta">Custom number · couple's request</div>
+         </div>
+         <a href="#book" style="color:var(--hot);font-family:'Titan One', cursive;font-size:1rem;">Watch →</a>
+       </li>
+     </ul>
+   </div>
+ </div>
 </section>
 
-<section id="music" class="section">
-  <h2>The Soundtrack</h2>
-  <div class="music-container">
-    <img src="https://i.postimg.cc/0yRJpxwf/Gemini-Generated-Image-ed3qd5ed3qd5ed3q.png" class="album-art" alt="Album Art">
-    <div class="tracklist">
-      <h3>Latest Release</h3>
-      <div class="track">
-        <span>1. High Camp Realness</span>
-        <audio controls>
-          <source src="https://www.dropbox.com/scl/fi/2bia8sorftn1guw05iv8u/Tag-Queen-Cheat-Sheet.mp3?rlkey=n4i4a9qyvxju1rj4gmlknis4v&st=p710ljam&dl=0" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="track">
-        <span>2. Garbage to Gold</span>
-        <audio controls>
-          <source src="https://www.dropbox.com/scl/fi/3dxcr9o87qq228t46rqsi/Basura-Courture-2.mp3?rlkey=asu1famnrbbgjmirbxzvs1c7l&st=ydns1iz6&dl=0" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
-  </div>
+<!-- ============ TOUR DATES ============ -->
+
+<section id="tour" class="section">
+ <div class="reveal" style="max-width:780px;">
+   <div class="eyebrow">Upcoming Shows</div>
+   <h2>Catch her <span class="editorial">live.</span></h2>
+ </div>
+ <div class="tour-list reveal">
+   <div class="tour-item">
+     <div class="tour-date"><strong>MAY 24</strong>2026</div>
+     <div class="tour-event">Drag Brunch Sundays<small>Hosted set + 4 numbers</small></div>
+     <div class="tour-venue">Hamburger Mary's · Milwaukee, WI</div>
+     <a href="#" class="tour-status tickets">Tickets</a>
+   </div>
+   <div class="tour-item">
+     <div class="tour-date"><strong>JUN 14</strong>2026</div>
+     <div class="tour-event">Pride Mainstage<small>Headlining performance</small></div>
+     <div class="tour-venue">Henry Maier Park · Milwaukee, WI</div>
+     <a href="#" class="tour-status tickets">Tickets</a>
+   </div>
+   <div class="tour-item">
+     <div class="tour-date"><strong>JUN 28</strong>2026</div>
+     <div class="tour-event">Pride Closing Night<small>With special guests</small></div>
+     <div class="tour-venue">This Is It! · Milwaukee, WI</div>
+     <span class="tour-status sold">Sold Out</span>
+   </div>
+   <div class="tour-item">
+     <div class="tour-date"><strong>JUL 19</strong>2026</div>
+     <div class="tour-event">Private Wedding Reception<small>Bachelorette &amp; ceremony</small></div>
+     <div class="tour-venue">Chicago, IL</div>
+     <span class="tour-status private">Private</span>
+   </div>
+   <div class="tour-item">
+     <div class="tour-date"><strong>AUG 09</strong>2026</div>
+     <div class="tour-event">Summer Sparkle Showcase<small>Co-headlining</small></div>
+     <div class="tour-venue">D.S. Tequila Co. · Chicago, IL</div>
+     <a href="#" class="tour-status tickets">Tickets</a>
+   </div>
+ </div>
 </section>
 
-<section class="section">
-  <h2>What People Say</h2>
-  <p class="testimonial">“Absolutely iconic. The energy, the looks, the performance — unforgettable.”</p>
+<!-- ============ TESTIMONIALS ============ -->
+
+<section id="reviews" class="section testimonials">
+ <div class="reveal" style="max-width:780px;">
+   <div class="eyebrow" style="color:var(--gold); border-color:var(--gold); background:transparent;">Client Love</div>
+   <h2>People are <span class="editorial">talking.</span></h2>
+ </div>
+ <div class="quote-grid">
+   <div class="quote reveal">
+     <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+     <p>"Poppins stole the entire show. The looks, the jokes, the energy — unreal. Our guests have not stopped texting us about her."</p>
+     <div class="quote-author">
+       <div class="quote-avatar" aria-hidden="true">M</div>
+       <div>
+         <strong>Marcus &amp; Lin</strong>
+         <span>Wedding Reception · Chicago</span>
+       </div>
+     </div>
+   </div>
+   <div class="quote reveal">
+     <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+     <p>"Professional, hilarious, gorgeous, and completely unforgettable. She turned our fundraiser into the highlight of the year."</p>
+     <div class="quote-author">
+       <div class="quote-avatar" aria-hidden="true">J</div>
+       <div>
+         <strong>Jess Romero</strong>
+         <span>Nonprofit Gala · Milwaukee</span>
+       </div>
+     </div>
+   </div>
+   <div class="quote reveal">
+     <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
+     <p>"The crowd was obsessed from the first beat. Tight set, real stage presence, easy to work with. Book her immediately."</p>
+     <div class="quote-author">
+       <div class="quote-avatar" aria-hidden="true">D</div>
+       <div>
+         <strong>Devon Park</strong>
+         <span>Venue Booker · The Roxy</span>
+       </div>
+     </div>
+   </div>
+ </div>
 </section>
 
-<section id="book" class="section">
-  <h2>Book Poppins</h2>
-  <button class="cta">Book Now</button>
+<!-- ============ EPK / PRESS KIT ============ -->
+
+<section class="section epk">
+ <div class="epk-content reveal">
+   <div class="eyebrow">Press &amp; Media</div>
+   <h2>Need an <span class="editorial">EPK?</span></h2>
+   <p style="font-size:1.15rem;margin-top:16px; font-weight:500;">For venues, festivals, and press: download the full electronic press kit including high-res photos, bio, tech rider, performance history, and brand assets.</p>
+   <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;">
+     <a href="mailto:booking@poppinsdrag.com?subject=EPK%20Request" class="btn">Request EPK</a>
+     <a href="mailto:press@poppinsdrag.com" class="btn ghost">Press Inquiries</a>
+   </div>
+ </div>
+ <div class="epk-grid reveal">
+   <div class="epk-item">
+     <div class="epk-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+     <div><strong>High-Res Photos</strong><span>20+ professional shots</span></div>
+   </div>
+   <div class="epk-item">
+     <div class="epk-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+     <div><strong>Full Bio &amp; Resume</strong><span>Short, long &amp; press-ready</span></div>
+   </div>
+   <div class="epk-item">
+     <div class="epk-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></div>
+     <div><strong>Tech Rider</strong><span>Sound, lighting &amp; staging</span></div>
+   </div>
+   <div class="epk-item">
+     <div class="epk-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+     <div><strong>Performance History</strong><span>Venues, festivals &amp; press</span></div>
+   </div>
+ </div>
 </section>
+
+<!-- ============ BOOKING ============ -->
+
+<section id="book" class="section booking">
+ <div class="booking-info reveal">
+   <div class="eyebrow" style="color:var(--purple); border-color:var(--purple); background:var(--gold);">Booking Request</div>
+   <h2>Let's make your event <span class="editorial">sparkle.</span></h2>
+   <p>Use the form to share your event date, location, package interest, and any special ideas. Most inquiries get a reply within 48 hours.</p>
+   <ul class="contact-list">
+     <li>
+       <div>
+         <strong>Booking</strong>
+         <a href="mailto:booking@poppinsdrag.com">booking@poppinsdrag.com</a>
+       </div>
+     </li>
+     <li>
+       <div>
+         <strong>Press</strong>
+         <a href="mailto:press@poppinsdrag.com">press@poppinsdrag.com</a>
+       </div>
+     </li>
+     <li>
+       <div>
+         <strong>Instagram</strong>
+         <a href="https://instagram.com/poppinsdrag" target="_blank" rel="noopener">@poppinsdrag</a>
+       </div>
+     </li>
+     <li>
+       <div>
+         <strong>Response Time</strong>
+         <a href="#" style="pointer-events:none;">Within 48 hours</a>
+       </div>
+     </li>
+   </ul>
+ </div>
+
+ <form class="reveal" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="return submitForm(event)">
+   <div class="form-row">
+     <div class="field">
+       <label for="name">Your Name <span class="req">*</span></label>
+       <input id="name" name="name" type="text" required placeholder="Full name" autocomplete="name">
+     </div>
+     <div class="field">
+       <label for="email">Email <span class="req">*</span></label>
+       <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
+     </div>
+   </div>
+   <div class="form-row">
+     <div class="field">
+       <label for="event-type">Event Type <span class="req">*</span></label>
+       <select id="event-type" name="event_type" required>
+         <option value="">Choose one</option>
+         <option>Private Party</option>
+         <option>Drag Brunch</option>
+         <option>Club Show</option>
+         <option>Pride Event</option>
+         <option>Fundraiser / Nonprofit</option>
+         <option>Wedding / Special Occasion</option>
+         <option>Corporate Event</option>
+         <option>Other</option>
+       </select>
+     </div>
+     <div class="field">
+       <label for="package">Package Interest</label>
+       <select id="package" name="package">
+         <option value="">Not sure yet</option>
+         <option>Pop-In Appearance ($150+)</option>
+         <option>Full Show ($400+)</option>
+         <option>Premium Event ($800+)</option>
+       </select>
+     </div>
+   </div>
+   <div class="form-row">
+     <div class="field">
+       <label for="event-date">Event Date</label>
+       <input id="event-date" name="event_date" type="date">
+     </div>
+     <div class="field">
+       <label for="location">City &amp; State</label>
+       <input id="location" name="location" type="text" placeholder="e.g. Milwaukee, WI" autocomplete="address-level2">
+     </div>
+   </div>
+   <div class="field">
+     <label for="message">Tell me about your event</label>
+     <textarea id="message" name="message" placeholder="Audience size, budget, theme, special requests, and anything fabulous..."></textarea>
+   </div>
+   <!-- Honeypot anti-spam (hidden) -->
+   <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+   <button class="btn" type="submit" id="submitBtn">Submit Booking Request</button>
+   <div class="form-success" id="formSuccess">
+     ✨ Got it! Your request is in. Expect a reply within 48 hours.
+   </div>
+   <p class="form-note">By submitting, you agree to be contacted about your event. We never share your info.</p>
+ </form>
+</section>
+
+</main>
+
+<!-- ============ NEWSLETTER ============ -->
+
+<section class="newsletter" aria-label="Newsletter signup">
+ <h2>Stay in the <span class="editorial">glitter</span>.</h2>
+ <p>Show dates, tour announcements, and behind-the-scenes from the dressing room. Sent occasionally. Unsubscribe anytime.</p>
+  <form class="newsletter-form" action="https://formspree.io/f/YOUR_NEWSLETTER_ID" method="POST" onsubmit="return submitNewsletter(event)">
+   <label for="news-email" style="position:absolute;left:-9999px;">Email address</label>
+   <input id="news-email" name="email" type="email" required placeholder="your@email.com">
+   <button type="submit">Subscribe</button>
+ </form>
+</section>
+
+<!-- ============ FOOTER ============ -->
 
 <footer class="footer">
-  © 2026 Poppins. Even garbage can sparkle.
+ <div class="footer-grid">
+   <div>
+     <div class="footer-brand">
+       <!-- Replaced bottom logo to match -->
+       <img src="Untitled design-4.svg" class="logo-img" alt="Poppins Logo" />
+     </div>
+     <div class="footer-tag">Even garbage can sparkle.</div>
+     <div class="socials">
+       <a href="https://instagram.com/poppinsdrag" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+       </a>
+       <a href="https://tiktok.com/@poppinsdrag" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.79a8.16 8.16 0 0 0 4.77 1.52V6.86a4.85 4.85 0 0 1-1.84-.17z"/></svg>
+       </a>
+       <a href="https://youtube.com/@poppinsdrag" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg>
+       </a>
+       <a href="mailto:booking@poppinsdrag.com" class="social-link" aria-label="Email">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+       </a>
+     </div>
+   </div>
+   <div class="footer-col">
+     <h4>Site</h4>
+     <ul>
+       <li><a href="#about">About</a></li>
+       <li><a href="#packages">Packages</a></li>
+       <li><a href="#gallery">Looks</a></li>
+       <li><a href="#tour">Shows</a></li>
+       <li><a href="#reviews">Reviews</a></li>
+     </ul>
+   </div>
+   <div class="footer-col">
+     <h4>Booking</h4>
+     <ul>
+       <li><a href="#book">Book Poppins</a></li>
+       <li><a href="mailto:booking@poppinsdrag.com">Booking Email</a></li>
+       <li><a href="mailto:press@poppinsdrag.com">Press / EPK</a></li>
+       <li><a href="#book">Tech Rider</a></li>
+     </ul>
+   </div>
+   <div class="footer-col">
+     <h4>Follow</h4>
+     <ul>
+       <li><a href="https://instagram.com/poppinsdrag" target="_blank" rel="noopener">Instagram</a></li>
+       <li><a href="https://tiktok.com/@poppinsdrag" target="_blank" rel="noopener">TikTok</a></li>
+       <li><a href="https://youtube.com/@poppinsdrag" target="_blank" rel="noopener">YouTube</a></li>
+     </ul>
+   </div>
+ </div>
+ <div class="footer-bottom">
+   <div>© <span id="year"></span> Poppins. All rights reserved.</div>
+   <div>Site by The House of Poppins · <a href="#">Privacy</a> · <a href="#">Booking Terms</a></div>
+ </div>
 </footer>
 
 <script>
-// ANIMATE HERO TEXT
-window.addEventListener("load", () => {
-  const h = document.querySelector(".headline");
-  h.style.transition = "0.8s";
-  h.style.opacity = 1;
-  h.style.transform = "translateY(0)";
-});
-
-// SCROLL NAV EFFECT
+// Sticky header shadow
+const header = document.getElementById("header");
 window.addEventListener("scroll", () => {
-  document.querySelector(".header")
-    .classList.toggle("scrolled", window.scrollY > 50);
+ header.classList.toggle("scrolled", window.scrollY > 40);
+}, { passive: true });
+
+// Mobile menu
+const nav = document.getElementById("nav");
+const menuBtn = document.querySelector(".menu-btn");
+function toggleMenu(){
+ const open = nav.classList.toggle("open");
+ menuBtn.setAttribute("aria-expanded", open);
+}
+nav.querySelectorAll("a").forEach(link => {
+ link.addEventListener("click", () => {
+   nav.classList.remove("open");
+   menuBtn.setAttribute("aria-expanded", "false");
+ });
 });
 
-// SMOOTH SCROLL
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+// Reveal on scroll
+const revealEls = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+   if(entry.isIntersecting){
+     entry.target.classList.add("active");
+     observer.unobserve(entry.target);
+   }
+ });
+}, { threshold: .12, rootMargin: "0px 0px -60px 0px" });
+revealEls.forEach(el => observer.observe(el));
+
+// Current year in footer
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Booking form (Formspree-compatible)
+function submitForm(event){
+ const form = event.target;
+ const action = form.getAttribute("action");
+
+ // If you haven't configured Formspree yet, fall back to a friendly demo message.
+ if(!action || action.includes("YOUR_FORM_ID")){
+   event.preventDefault();
+   document.getElementById("formSuccess").classList.add("show");
+   document.getElementById("submitBtn").textContent = "Request Received ✨";
+   document.getElementById("submitBtn").disabled = true;
+   return false;
+ }
+
+ // Real submit (let the browser send to Formspree).
+ const btn = document.getElementById("submitBtn");
+ btn.textContent = "Sending...";
+ btn.disabled = true;
+ return true;
+}
+
+// Newsletter
+function submitNewsletter(event){
+ const form = event.target;
+ const action = form.getAttribute("action");
+ if(!action || action.includes("YOUR_NEWSLETTER_ID")){
+   event.preventDefault();
+   const btn = form.querySelector("button");
+   btn.textContent = "Subscribed ✨";
+   btn.disabled = true;
+   form.querySelector("input").value = "";
+   return false;
+ }
+ return true;
 }
 </script>
 
